@@ -168,32 +168,33 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-GPS.out \
+GPSN.out \
 
 EXE_OUTPUTS__QUOTED += \
-"GPS.out" \
+"GPSN.out" \
 
 BIN_OUTPUTS += \
-GPS.hex \
+GPSN.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"GPS.hex" \
+"GPSN.hex" \
 
 
 # All Target
-all: GPS.out
+all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+	@$(MAKE) --no-print-directory -Onone "GPSN.out"
 
 # Tool invocations
-GPS.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+GPSN.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccs700/ccsv7/tools/compiler/ti-cgt-msp430_16.9.0.LTS/bin/cl430" --printf_support=nofloat -vmspx --use_hw_mpy=F5 --advice:power="none" -g --define=DEPRECATED --define=__CC430F6137__ --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU15 --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --printf_support=full -z -m"GPS.map" --heap_size=400 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccs700/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccs700/ccsv7/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccs700/ccsv7/tools/compiler/ti-cgt-msp430_16.9.0.LTS/lib" -i"C:/ti/ccs700/ccsv7/tools/compiler/ti-cgt-msp430_16.9.0.LTS/include" --reread_libs --display_error_number --warn_sections --diag_wrap=off --xml_link_info="GPS_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "GPS.out" $(ORDERED_OBJS)
+	"C:/ti/ccs700/ccsv7/tools/compiler/ti-cgt-msp430_16.9.0.LTS/bin/cl430" --printf_support=nofloat -vmspx --use_hw_mpy=F5 --advice:power=all --define=__CC430F6137__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU15 --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 -z -m"GPSN.map" --heap_size=320 --stack_size=80 --cinit_hold_wdt=on -i"C:/ti/ccs700/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccs700/ccsv7/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccs700/ccsv7/tools/compiler/ti-cgt-msp430_16.9.0.LTS/lib" -i"C:/ti/ccs700/ccsv7/tools/compiler/ti-cgt-msp430_16.9.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="GPSN_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "GPSN.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-GPS.hex: $(EXE_OUTPUTS)
+GPSN.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: MSP430 Hex Utility'
-	"C:/ti/ccs700/ccsv7/tools/compiler/ti-cgt-msp430_16.9.0.LTS/bin/hex430" --memwidth=8 --romwidth=8 -o "GPS.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccs700/ccsv7/tools/compiler/ti-cgt-msp430_16.9.0.LTS/bin/hex430" --memwidth=8 --romwidth=8 -o "GPSN.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 

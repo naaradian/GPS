@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <?ccsproject version="1.0"?>
 <projectOptions>
-	<deviceVariant value="MSP430F5438A"/>
+	<ccsVersion value="7.0.0"/>
+	<deviceVariant value="CC430F6137"/>
 	<deviceFamily value="MSP430"/>
 	<deviceEndianness value="little"/>
-	<codegenToolVersion value="15.12.3.LTS"/>
+	<codegenToolVersion value="16.9.0.LTS"/>
 	<isElfFormat value="true"/>
 	<connection value="common/targetdb/connections/TIMSP430-USB.xml"/>
-	<linkerCommandFile value="lnk_msp430f5438a.cmd"/>
+	<linkerCommandFile value="lnk_cc430f6137.cmd"/>
 	<rts value="libc.a"/>
 	<createSlaveProjects value=""/>
-	<templateProperties value="id=usci_b_i2c_ex2_slaveRxMultiple.projectspec.usci_b_i2c_ex2_slaveRxMultiple,"/>
-	<origin value="C:/Users/naa/Vosst6/tmp/GPS"/>
-	<filesToOpen value=""/>
-	<isTargetManual value="false"/>
+	<templateProperties value="id=com.ti.common.project.core.emptyProjectWithMainTemplate_msp430,"/>
+	<filesToOpen value="main.c,"/>
 </projectOptions>
